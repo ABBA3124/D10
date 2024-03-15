@@ -131,7 +131,7 @@ const onlyLetters2 = function (stringa) {
   return risultato2
 }
 
-console.log(onlyLetters2("ciao 1234 bau")) 
+console.log(onlyLetters2("ciao 1234 bau"))
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
@@ -401,7 +401,10 @@ console.log(filmDelMillennio)
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
 const sumAllTheYears = (movies) => {
-  const totaleSommaAnni = movies.reduce((somma, film) => somma + parseInt(film.Year), 0)
+  const totaleSommaAnni = movies.reduce(
+    (somma, film) => somma + parseInt(film.Year),
+    0
+  )
   return totaleSommaAnni
 }
 const totaleSommaAnni = sumAllTheYears(movies)
@@ -410,13 +413,34 @@ console.log(totaleSommaAnni)
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
-
-
+const searchByTitle = (movies, cercaStringa) => {
+  return movies.filter((film) =>
+    film.Title.toLowerCase().includes(cercaStringa.toLowerCase())
+  )
+}
+const cercaStringaContenente = "avengers"
+const filmFiltrati = searchByTitle(movies, cercaStringaContenente)
+console.log("film filtrati:", filmFiltrati)
 
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+const searchAndDivide = (movies, cercaStringa) => {
+  const match = []
+  const unmatch = []
+  movies.forEach((film) => {
+    if (film.Title.toLowerCase().includes(cercaStringa.toLowerCase())) {
+      match.push(film)
+    } else {
+      unmatch.push(film)
+    }
+  })
+  return { match, unmatch }
+}
+const cercaNellaStringa = "avengers"
+const dividiFilm = searchAndDivide(movies, cercaNellaStringa)
+console.log("film divisi es 18", dividiFilm)
 
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
@@ -427,30 +451,68 @@ console.log(totaleSommaAnni)
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+const container = document.getElementById("container")
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+const td = document.querySelectorAll("td")
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
-
+const stampa = function (stampa) {
+  const td = document.querySelectorAll("td")
+  td.forEach((td) => {
+    console.log(td.textContent)
+  })
+}
+stampa()
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+const addBackgroundRedLinks = function (redLink) {
+  const links = document.querySelectorAll("a")
+  links.forEach((link) => {
+    link.style.backgroundColor = "red"
+  })
+}
+addBackgroundRedLinks()
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+const aggiungiElementoALista = function (add) {
+  const nuovoElemento = document.createElement("li")
+  nuovoElemento.textContent = "Nuovo elemento della lista"
+  const lista = document.getElementById("myList")
+  lista.appendChild(nuovoElemento)
+}
+// aggiungiElementoALista()
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
+const svuotaLista = function () {
+  const lista = document.getElementById("myList")
+  while (lista.firstChild) {
+    lista.removeChild(lista.firstChild)
+  }
+}
+// svuotaLista()
+// console.log("prova",svuotaLista)
 
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+const addClasseTr = function () {
+  const listaTr = document.querySelectorAll("tr")
+  listaTr.forEach((tr) => {
+    tr.classList.add("test")
+  })
+}
+addClasseTr()
+// console.log(addClasseTr)
 
 // [EXTRA] JS Avanzato
 
@@ -465,6 +527,13 @@ console.log(totaleSommaAnni)
   ***
 
 */
+const halfTree = function (altezza) {
+  for (let i = 1; i <= altezza; i++) {
+    const crea = "*".repeat(i)
+    console.log(crea)
+  }
+}
+halfTree(3)
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
