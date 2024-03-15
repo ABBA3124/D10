@@ -221,6 +221,7 @@ console.log(isTodayMyBirthday(ilGiornoDelMioCompleanno))
 // Arrays & Oggetti
 
 // NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
+/* Questo array viene usato per gli esercizi. Non modificarlo. */
 const movies = [
   {
     Title: "The Lord of the Rings: The Fellowship of the Ring",
@@ -445,6 +446,13 @@ console.log("film divisi es 18", dividiFilm)
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
+const removeIndex = (movies, posizione) => {
+  const listaAggiornataFilm = [...movies.slice(0, posizione), ...movies.slice(posizione + 1)]
+  return listaAggiornataFilm
+}
+const filmSenzaPosizione = removeIndex(movies, 2) 
+console.log("lista film aggiornata:", filmSenzaPosizione)
+
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
@@ -546,9 +554,31 @@ halfTree(3)
   *****
 
 */
+const tree = function (altezza) {
+  for (let i = 0; i < altezza; i++) {
+    let riga = ""
+    for (let a = 0; a < altezza - i - 1; a++) {
+      riga += " "
+    }
+    for (let b = 0; b < 2 * i + 1; b++) {
+      riga += "*"
+    }
+    console.log(riga)
+  }
+}
+tree(3)
 
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
-
-/* Questo array viene usato per gli esercizi. Non modificarlo. */
+const isItPrime = (number) => {
+  if (number <= 1) return false
+  for (let i = 2; i < number; i++) {
+    if (number % i === 0) {
+      return false
+    }
+  }
+  return true
+}
+console.log(isItPrime(21))
+console.log(isItPrime(19))
