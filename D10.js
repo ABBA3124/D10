@@ -40,24 +40,45 @@ console.log("Dati utente eliminando age", me)
 /* ESERCIZIO E
   Crea del codice per aggiungere programmaticamente all'oggetto precedentemente creato un array chiamato "skills", contenente i linguaggi di programmazione che conosci.
 */
+me.skills = ["javascript"]
+console.log("Aggiungiamo una skill", me)
 
 /* ESERCIZIO F
   Crea un pezzo di codice per aggiungere un nuovo elemento all'array "skills" contenuto nell'oggetto "me".
 */
+me.skills.push("Python")
+console.log("Aggiungiamo un altra skill",me)
 
 /* ESERCIZIO G
   Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
 */
+me.skills.pop()
+console.log("rimuoviamo l'ultimo elemento dell'array", me)
 
 // Funzioni
 
 /* ESERCIZIO 1
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
 */
+const dice = () => {
+  return Math.ceil(Math.random() * 6)
+}
+const result = dice()          
+console.log("il numero generato è:", result)
 
 /* ESERCIZIO 2
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
+const whoIsBigger = function (num1, num2) {
+  if (num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
+console.log(whoIsBigger(10, 8))
+console.log(whoIsBigger(18, 57))
+
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
