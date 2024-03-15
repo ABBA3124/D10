@@ -24,10 +24,18 @@ console.log(random)
 /* ESERCIZIO C
   Crea una variabile chiamata "me" e assegnaci un oggetto contenente le seguenti proprietà: name = il tuo nome, surname = il tuo cognome, age = la tua età.
 */
+const me = {
+  name: "Davide",
+  surname: "Abbadessa",
+  age: "25"
+}
+console.log("Dati utente", me)
 
 /* ESERCIZIO D
   Crea del codice per rimuovere programmaticamente la proprietà "age" dall'oggetto precedentemente creato.
 */
+delete me.age
+console.log("Dati utente eliminando age", me)
 
 /* ESERCIZIO E
   Crea del codice per aggiungere programmaticamente all'oggetto precedentemente creato un array chiamato "skills", contenente i linguaggi di programmazione che conosci.
