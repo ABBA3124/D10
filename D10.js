@@ -85,25 +85,73 @@ console.log(whoIsBigger(18, 57))
 
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
+const splitMe = function (stringa) {
+  const words = stringa.split(" ")
+  const maiuscolo = words.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  return maiuscolo
+}
+console.log(splitMe("esempio di split"))
 
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
+const deleteOne = function (stringa, isFrist) {
+  if (isFrist === true) {
+    return stringa.substring(1)
+  } else {
+    return stringa.substring(0, stringa.length - 1)
+  }
+}
+console.log(deleteOne("ciao come stai?", true))
+console.log(deleteOne("prova", true))
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
 
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
+//il metodo che ho googlato che mi è piacudo di più è l'utilizzo della regex davvero molto bella, però ci tengo a fare una variante diversa che ovviamente farà la stessa cosa
+const onlyLetters = function (stringa) {
+  return stringa.replace(/[0-9]/g, '')
+}
+console.log(onlyLetters("ciao mondo 10"))
+console.log(onlyLetters("ho 25 anni"))
+
+// altro metodo 
+const onlyLetters2 = function(stringa) {
+  let risultato2 = '';
+  for (let i = 0; i < stringa.length; i++) {
+    const char = stringa.charAt(i);
+    if (!(char >= '0' && char <= '9')) {
+      risultato2 += char;
+    }
+  }
+  return risultato2;
+}
+
+console.log(onlyLetters2("ciao 1234 bau")); // Output: "ciao"
+
+
 
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
+const isThisAnEmail = function (stringa) {
+  return stringa.includes("@") && stringa.includes(".")
+}
+console.log(isThisAnEmail("davideabbadessa03@gmail.com"))
+console.log(isThisAnEmail("davideabbadessa03gmail.com"))
 
 /* ESERCIZIO 7
   Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
 */
+const whatDayIsIt = function () {
+  const giornoDellaSettimanaAttuale = ["Domenica", "Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato"]
+  const oggi = new Date().getDay()
+  return giornoDellaSettimanaAttuale[oggi]
+}
+console.log(whatDayIsIt())
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
@@ -117,6 +165,9 @@ console.log(whoIsBigger(18, 57))
       values: [3, 3, 4]
   }
 */
+
+
+
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
