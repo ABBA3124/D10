@@ -459,12 +459,22 @@ console.log("lista film aggiornata:", filmSenzaPosizione)
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
-const container = document.getElementById("container")
+function selezionaContainer () {
+  const container = document.getElementById("container")
+  return container
+}
+const container = selezionaContainer()
+console.log(container)
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
-const td = document.querySelectorAll("td")
+function selezionaTuttiITd() {
+  const td = document.querySelectorAll("td")
+  return td
+}
+const td = selezionaTuttiITd()
+console.log(td)
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
@@ -521,6 +531,7 @@ const addClasseTr = function () {
 }
 addClasseTr()
 // console.log(addClasseTr)
+
 
 // [EXTRA] JS Avanzato
 
